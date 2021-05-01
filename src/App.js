@@ -28,15 +28,16 @@ class App extends Component {
   onImgClick = event => {
     const { source } = event.target.dataset;
     this.setState({ selectedImg: source });
+    this.toggleModal();
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
       this.fetchHits();
     }
-    if (prevState.selectedImg !== this.state.selectedImg) {
-      this.toggleModal();
-    }
+    // if (prevState.selectedImg !== this.state.selectedImg) {
+    //   this.toggleModal();
+    // }
 
     window.scrollTo({
       top: document.documentElement.scrollHeight,
